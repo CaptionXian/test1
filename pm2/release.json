@@ -1,0 +1,6 @@
+{
+  "name": "okrs-core",
+  "script": "./lib/app.js",
+  "exec_mode": "cluster_mode",
+  "instances": 1
+}

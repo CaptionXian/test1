@@ -1,0 +1,21 @@
+---
+PORT: 4000
+MONGODB:
+  URL: 'mongodb://localhost/okr'
+  DB: okr
+  USE_SSL: false
+  KEY_PATH:
+  CERT_PATH:
+  CA_PATH:
+TWS:
+  APP_ID: 58f95e92c06a546f7dab73c7
+  AUTH:
+    URL: http://localhost:31090
+    SECRET: hello123
+    CACHE_PREFIX: OKR_AUTH
+    RESOURCE_TYPE: self
+  ORG:
+    URL: http://localhost:31103
+
+REDIS:
+- localhost:6379

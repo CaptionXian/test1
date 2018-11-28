@@ -1,0 +1,14 @@
+{
+  "activity.okrobjective.create": "{creator} created Objective {title}",
+  "activity.okrobjective.update.title": "{creator} updated the Objective as {title}",
+  "activity.okrobjective.update.progress": "{creator} updated the progress as {progress}%",
+  "activity.okrobjective.update.executor": "{creator} updated the Executor as {executor}",
+  "activity.okrobjective.update.okrperiod": "{creator} updated the period as {okrperiod}",
+  "activity.okrobjective.update.ancestor": "{creator} updated Father Objective as {ancestor}",
+  "activity.okrobjective.clear.ancestor": "{creator} deleted Father Objective",
+  "activity.okrobjective.update.type.organization": "{creator}  updated the type of Objective as Organization",
+  "activity.okrobjective.update.type.team": "{creator}  updated the type of Objective as Team",
+  "activity.okrobjective.update.type.personal": "{creator} changed objective type to \"member\"",
+  "activity.okrobjective.update.suspend": "{creator} paused objective",
+  "activity.okrobjective.update.resume": "{creator} resumed objective."
+}

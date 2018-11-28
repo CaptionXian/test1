@@ -1,0 +1,375 @@
+swagger: "2.0"
+info:
+  description: "目标管理API文档"
+  version: "1.0.0"
+  title: "OKR"
+host: "192.168.3.21:3003/swagger"
+basePath: "/v2"
+tags:
+- name: "评分标准"
+  description: "评分标准"
+schemes:
+- "https"
+- "http"
+paths:
+  /organizations/{_organizationId}/okrgradingstandards:
+    post:
+      tags:
+      - "评分标准"
+      summary: "新建评分标准"
+      description: "新建评分标准"
+      operationId: "addokrgradingstandards"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "新建评分标准参数"
+        required: true
+        schema:
+          $ref: "#/definitions/Okrgradingstandard"
+      - name: "_organizationId"
+        in: "path"
+        description: "企业id"
+        required: true
+        type: "string"
+        format: "objectID"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Okrgradingstandard"
+    get:
+      tags:
+      - "评分标准"
+      summary: "获取评分标准"
+      description: "获取评分标准"
+      operationId: "getokrgradingstandards"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "_organizationId"
+        in: "path"
+        description: "企业id"
+        required: true
+        type: "string"
+        format: "objectID"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              systemStandards:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Okrgradingstandard"
+              periodStandards:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Okrgradingstandard"
+              objectiveStandards:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Okrgradingstandard"
+  /organizations/{_organizationId}/okrgradingstandards/{_okrgradingstandardId}:
+    put:
+      tags:
+      - "评分标准"
+      summary: "修改评分标准"
+      description: "修改评分标准"
+      operationId: "updateokrgradingstandards"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "新建评分标准参数"
+        required: true
+        schema:
+          $ref: "#/definitions/Okrgradingstandard"
+      - name: "_organizationId"
+        in: "path"
+        description: "企业id"
+        required: true
+        type: "string"
+        format: "objectID"
+      - name: "_okrgradingstandardId"
+        in: "path"
+        description: "评分标准"
+        required: true
+        type: "string"
+        format: "objectID"
+      responses:
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Pet not found"
+        405:
+          description: "Validation exception"
+    delete:
+      tags:
+      - "评分标准"
+      summary: "删除评分标准"
+      description: "修改评分标准"
+      operationId: "deleteokrgradingstandards"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "_organizationId"
+        in: "path"
+        description: "企业id"
+        required: true
+        type: "string"
+        format: "objectID"
+      - name: "_okrgradingstandardId"
+        in: "path"
+        description: "评分标准"
+        required: true
+        type: "string"
+        format: "objectID"
+      responses:
+        200:
+          description: OK
+  /organizations/{_organizationId}/okrobjectives/{_okrObjectiveId}/comments:
+    post:
+      tags:
+      - "评论"
+      summary: "新增评论"
+      description: "新增评论"
+      operationId: "addokrcomments"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "新增评论"
+        required: true
+        schema:
+          $ref: "#/definitions/Okrcomment"
+      - name: "_organizationId"
+        in: "path"
+        description: "企业id"
+        required: true
+        type: "string"
+        format: "objectID"
+      - name: "_okrObjectiveId"
+        in: "path"
+        description: "目标id"
+        required: true
+        type: "string"
+        format: "objectID"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Okrcomment"  
+    get:
+      tags:
+      - "评论"
+      summary: "获取评论"
+      description: "获取评论"
+      operationId: "getokrcomments"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "_organizationId"
+        in: "path"
+        description: "企业id"
+        required: true
+        type: "string"
+        format: "objectID"
+      - name: "_okrObjectiveId"
+        in: "path"
+        description: "目标id"
+        required: true
+        type: "string"
+        format: "objectID"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Okrcomment"
+
+  /organizations/{_organizationId}/okrobjectives/{_okrObjectiveId}/comments/{_okrCommentId}:
+    get:
+      tags:
+      - "评论"
+      summary: "单个评论"
+      description: "根据id获取单个评论"
+      operationId: "getokrcommentsById"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "_organizationId"
+        in: "path"
+        description: "企业id"
+        required: true
+        type: "string"
+        format: "objectID"
+      - name: "_okrObjectiveId"
+        in: "path"
+        description: "目标id"
+        required: true
+        type: "string"
+        format: "objectID"
+      - name: "_okrCommentId"
+        in: "path"
+        description: "评论id"
+        required: true
+        type: "string"
+        format: "objectID"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Okrcomment"  
+    put:
+      tags:
+      - "评论"
+      summary: "更新评论"
+      description: "更新评论"
+      operationId: "updateokrcomments"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "更新评论"
+        required: true
+        schema:
+          $ref: "#/definitions/Okrcomment"
+      - name: "_organizationId"
+        in: "path"
+        description: "企业id"
+        required: true
+        type: "string"
+        format: "objectID"
+      - name: "_okrObjectiveId"
+        in: "path"
+        description: "目标id"
+        required: true
+        type: "string"
+        format: "objectID"
+      - name: "_okrCommentId"
+        in: "path"
+        description: "评论id"
+        required: true
+        type: "string"
+        format: "objectID"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Okrcomment"
+    delete:
+      tags:
+      - "评论"
+      summary: "删除评论"
+      description: "删除评论"
+      operationId: "deleteokrcommentsById"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "_organizationId"
+        in: "path"
+        description: "企业id"
+        required: true
+        type: "string"
+        format: "objectID"
+      - name: "_okrObjectiveId"
+        in: "path"
+        description: "目标id"
+        required: true
+        type: "string"
+        format: "objectID"
+      - name: "_okrCommentId"
+        in: "path"
+        description: "评论id"
+        required: true
+        type: "string"
+        format: "objectID"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Okrcomment"  
+    
+definitions:
+  Okrgradingstandard:
+    required:
+    - "gradingStandards"
+    - "standardType"
+    - "_okrLinkId"
+    - "_organizationId"
+    properties:
+      _id:
+        type: "string"
+      gradingStandards:
+        type: "array"
+        items: 
+          $ref: "#/definitions/GradingStandards"
+      standardType:
+        type: "number"
+        enum:
+        - 0
+        - 1
+        - 2
+        description: "0:系统评分标准,1:周期评分标准,2:目标评分标准"
+      _okrLinkId:
+        type: "string"
+      _organizationId:
+        type: "string"
+  GradingStandards:
+    properties:
+      score:
+        type: "number"
+      describe:
+        type: "string"
+  Okrcomment:
+    required:
+      - "content"
+      - "_okrObjectiveId"
+    properties:
+      _id:
+        type: "string"
+      content:
+        type: "string"
+      _okrObjectiveId:
+        type: "string"
+      _creatorId:
+        description: "不用传"
+        type: "object"
+        properties:
+          _id:
+            type: "string"
+          name: 
+            type: "string"
+          avatarUrl:
+            type: "string"
+          
+

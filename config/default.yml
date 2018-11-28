@@ -1,0 +1,49 @@
+---
+PORT: 3003
+MONGODB:
+  URL: 'mongodb://116.62.144.76:27017/okr'
+  DB: okr
+  USE_SSL: false
+  KEY_PATH:
+  CERT_PATH:
+  CA_PATH:
+TWS:
+  APP_ID: 5b2b4f47be825b3929039132
+  AUTH:
+    URL: http://112.124.117.209:8081
+    SECRET: JrIvFiiIHlTQJElCulOPAGlkfbGGqAmt
+    CACHE_PREFIX: OKR_AUTH
+    RESOURCE_TYPE: self
+  ORG:
+    URL: http://112.124.117.209:8082
+CORE:
+  HOST: http://salesdemo.teambition.net/api
+RATELIMIT:
+  PREFIX: ork:LIMIT
+  POLICY:
+    GET: [300, 60000]
+    POST: [300, 60000]
+REDIS: 112.124.117.209:6379
+CLIENT_ID: 933c3360-bb1a-11e8-9169-17f9ec995efc
+CLIENT_SECRET: 332bf66e-b257-4094-82ce-bb27b99fda3a
+AUTH_URL: http://salesdemo.teambition.net/oauth2/access_token
+SESSION:
+  DOMAIN: .teambition.net
+  NAME: TEAMBITION_SESSIONID
+  KEYS:
+  - tb-accounts
+GRADINGSTANDARD:
+  [
+    {
+      score: 30,
+      describe: '我们知道肯定能达成的程度。只需要很少的帮助或不需要帮助就能达成的程度。'
+    },
+    {
+      score: 70,
+      describe: '这是我们希望能达成的程度。虽然很难但是可以达成。'
+    },
+    {
+      score: 100,
+      describe: '结果远超预期：几乎不可达成。'
+    }
+  ]
